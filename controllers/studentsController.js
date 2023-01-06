@@ -5,6 +5,8 @@ const controller = express.Router();
 
 const studentData = require('../studentData.json')
 
+
+// - Read Route
 controller.get('/', (req,res) => {
     // returns json instead of res.end
     res.json(studentData)
