@@ -15,8 +15,8 @@ app.use('/names', namesController)
 
 
 // Route to home(root) page - app can get request on different ROUTES
-app.get('/', (req,res) => {
-res.send('Hello World!')
+app.get('/', (request,response) => {
+response.send('Hello World!')
 })
 
 

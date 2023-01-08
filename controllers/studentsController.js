@@ -6,22 +6,21 @@ const controller = express.Router();
 const studentData = require('../studentData.json')
 
 
-// - Read Route
-controller.get('/', (req,res) => {
+// - Read Route : all students
+controller.get('/', (request,response) => {
     // returns json instead of res.end
-    res.json(studentData)
+    response.json(studentData)
 })
 
-// - Show Route : wild card student 
-controller.get('/:id', (req,res) => {
+// - Show Route : single student 
+controller.get('/:id', (request,response) => {
 
     try{
 
-    
-    const studentId = req.params.id
+    const studentId = request.params.id
 
     if(/[0-9]/.test(studentId)){
-        res.send('Student Id must be a number')
+        response.send('Student Id must be a number')
         return 
     }
 
@@ -32,13 +31,13 @@ controller.get('/:id', (req,res) => {
 
     if(singleStudent){
 
-        res.json(singleStudent)
+        response.json(singleStudent)
 
     }else{
-        res.send('Student Not Found')
+        response.send('Student Not Found')
     }
 } catch (err){
-    res.status(500).send('An error has occurred')
+    response.status(500).send('An error has occurred')
 }
 })
 
