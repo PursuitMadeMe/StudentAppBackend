@@ -14,10 +14,12 @@ app.use('/students', studentsController)
 app.use('/names', namesController)
 
 
-// Route to home(root) page - app can get request on different ROUTES
+// Route to home(root) page - app can get request on different ROUTES - HEALTH CHECK 
 app.get('/', (request,response) => {
 response.send('Hello World!')
 })
+
+
 
 
 // export app
