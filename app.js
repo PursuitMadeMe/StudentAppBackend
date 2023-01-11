@@ -1,5 +1,6 @@
 // import code for express
 const express = require('express');
+const cors = require('cors')
 
 // initialize app 
 const app = express();
@@ -8,7 +9,7 @@ const app = express();
 const studentsController = require('./controllers/studentsController');
 const namesController = require('./controllers/namesController');
 
-
+app.use(cors())
 // tells app to use  - request to (localhost:3003/students ) use the studentsController data  
 app.use('/students', studentsController)
 app.use('/names', namesController)
